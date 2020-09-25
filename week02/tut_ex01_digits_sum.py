@@ -26,4 +26,5 @@ def calculate_digits_sum(number: int) -> int:
 
 
 # Print out the sum result
-print(f"The sum of all digits of the number {num} is: {calculate_digits_sum(num)}")
+print(
+    f"The sum of all digits of the number {num} is: {calculate_digits_sum(num)}")
