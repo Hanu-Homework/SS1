@@ -64,10 +64,11 @@ def num2text(num: int) -> str:
 
     ret = ""
 
-    for index, part in enumerate(parts):
+    for index, part in enumerate(parts):\
 
-        ret += num_to_text_less_than_1000(part) + \
-            suffixes[len(parts) - 1 - index] + " "
+        if part > 0 or index == len(parts) - 1:
+            ret += num_to_text_less_than_1000(part) + \
+                suffixes[len(parts) - 1 - index] + " "
 
     if num % 10 == 0:
         ret += "Chẵn"
@@ -81,7 +82,9 @@ if __name__ == "__main__":
         100_111_100,
         9_860_100_100,
         345_134_156,
-        124_194_342
+        124_194_342,
+        112_000,
+        112_000_000
     ]
 
     for test_case in test_cases:
