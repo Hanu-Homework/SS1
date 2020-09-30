@@ -32,7 +32,12 @@ def num_to_text_less_than_1000(num: int) -> str:
         else:
             ret += num_text[chuc] + " Mươi "
     if don_vi > 0:
-        ret += num_text[don_vi] + " "
+        if chuc == 0 and tram > 0:
+            ret += "Lẻ "
+        if don_vi == 5 and chuc > 0:
+            ret += "Lăm "
+        else:
+            ret += num_text[don_vi] + " "
     return ret
 
 
@@ -63,7 +68,6 @@ def num2text(num: int) -> str:
     parts.reverse()
 
     ret = ""
-    is_more_than_one_thousand_billions = num > 1_000_000_000_000
 
     for index, part in enumerate(parts):
 
@@ -93,7 +97,10 @@ if __name__ == "__main__":
         112_010_000_000_000,
         112_110_000_000_000,
         112_111_000_000_000,
-        111
+        111,
+        102,
+        156,
+        205
     ]
 
     for test_case in test_cases:
