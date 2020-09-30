@@ -1,8 +1,9 @@
 def num2text(num: int) -> str:
     """
+    Translate a number into VND text format
     """
 
-    trans = {
+    num_text = {
         0: "Không",
         1: "Một",
         2: "Hai",
@@ -15,7 +16,7 @@ def num2text(num: int) -> str:
         9: "Chín",
     }
 
-    currency = [
+    suffixes = [
         "Đồng",
         "Mươi",
         "Trăm",
@@ -37,40 +38,40 @@ def num2text(num: int) -> str:
 
     l = len(str(num))
 
-    cache = num
+    clone = num
     count = 0
-    ret = ""
+    result = ""
 
-    flag = False
+    is_thousand_suffix_read = False
 
-    while cache > 0:
-        to_read1 = cache % 10
+    while clone > 0:
+        num_value = clone % 10
 
-        if to_read1 == 0:
+        if num_value == 0:
             count += 1
-            cache //= 10
+            clone //= 10
             continue
 
-        to_read2 = count % len(currency)
+        suffix = count % len(suffixes)
 
-        if to_read2 % 3 == 0:
-            flag = True
+        if suffix % 3 == 0:
+            is_thousand_suffix_read = True
         else:
-            flag = False
+            is_thousand_suffix_read = False
 
-        ret = trans[to_read1] + " " + \
-            currency[to_read2] + " " + ret
+        result = num_text[num_value] + " " + \
+            suffixes[suffix] + " " + result
 
         count += 1
-        cache //= 10
+        clone //= 10
 
-    if not flag:
-        ret += currency[count - count % 3] + " "
+    if not is_thousand_suffix_read:
+        result += suffixes[count - count % 3] + " "
 
     if num % 10 == 0:
-        ret += "Chẵn"
+        result += "Chẵn"
 
-    return ret
+    return result
 
 
 if __name__ == "__main__":
