@@ -1,12 +1,19 @@
 def count_vowels_and_consonants(string: str) -> tuple:
+    # A constant tuple holding all of the vowels
     all_vowels = ('a', 'e', 'i', 'o', 'u')
 
     vowels_count = 0
     consonants_count = 0
 
-    for char in string.lower():
+    # Convert all the characters of the string to lowercase
+    string = string.lower()
+
+    # Iterate through each characters of the string
+    for char in string:
+
         if char in all_vowels:
             vowels_count += 1
+        # Else if the character is a lowercase letter
         elif 'a' <= char <= 'z':
             consonants_count += 1
 
