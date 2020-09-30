@@ -41,18 +41,7 @@ def num2text(num: int) -> str:
     Translate a number into VND text format
     """
 
-    num_text = {
-        0: "Không",
-        1: "Một",
-        2: "Hai",
-        3: "Ba",
-        4: "Bốn",
-        5: "Năm",
-        6: "Sáu",
-        7: "Bảy",
-        8: "Tám",
-        9: "Chín",
-    }
+    global num_text
 
     suffixes = (
         "Đồng",
