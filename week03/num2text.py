@@ -63,8 +63,12 @@ def num2text(num: int) -> str:
     parts.reverse()
 
     ret = ""
+    is_more_than_one_thousand_billions = num > 1_000_000_000_000
 
-    for index, part in enumerate(parts):\
+    for index, part in enumerate(parts):
+
+        if index == len(parts) - 4 and part == 0:
+            ret += "Tỷ "
 
         if part > 0 or index == len(parts) - 1:
             ret += num_to_text_less_than_1000(part) + \
@@ -84,7 +88,12 @@ if __name__ == "__main__":
         345_134_156,
         124_194_342,
         112_000,
-        112_000_000
+        112_000_000,
+        112_000_000_000_000,
+        112_010_000_000_000,
+        112_110_000_000_000,
+        112_111_000_000_000,
+        111
     ]
 
     for test_case in test_cases:
