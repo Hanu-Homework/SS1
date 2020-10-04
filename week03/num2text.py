@@ -100,7 +100,8 @@ if __name__ == "__main__":
         111,
         102,
         156,
-        205
+        205,
+        25
     ]
 
     for test_case in test_cases:
