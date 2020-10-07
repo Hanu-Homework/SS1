@@ -40,7 +40,7 @@ def num_to_text_less_than_1000(num: int) -> str:
         # Special case: abc with b = 1, the translation will be different
         if tens == 1:
             ret += "Mười "
-        else: # abc, with b running from 2 to 9, read it normally
+        else:  # abc, with b running from 2 to 9, read it normally
             ret += num_text[tens] + " Mươi "
     if units > 0:
         # Special case: abc, with b = 0 and a running from 1 to 9
