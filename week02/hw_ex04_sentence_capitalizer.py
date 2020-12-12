@@ -1,3 +1,6 @@
+import re
+
+
 def capitalized(string: str) -> str:
     """
     Convert the first character of the given string into uppercase.
@@ -16,7 +19,7 @@ def capitalize_all(para: str) -> str:
     ret = ""
 
     # Split the paragraph into sentences
-    sentences = para.split(". ")
+    sentences = re.split(r"( *[.!?] *)", para)
 
     # Iterate through each sentence to the last - 1 sentence
     # Because we are adding a dot after each capitalized sentences
@@ -33,3 +36,4 @@ def capitalize_all(para: str) -> str:
 
 if __name__ == "__main__":
     paragraph = input("Enter a paragraph: ")
+    print(capitalize_all(paragraph))
